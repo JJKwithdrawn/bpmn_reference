@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BPMN Quick Reference</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">BPMN 2.0</p>
+        <h1>BPMN Quick Reference</h1>
+        <p class="subtitle">
+          The 20% of concepts you need 80% of the time. Use search to filter the cheat
+          sheet.
+        </p>
+      </div>
+      <div class="header-meta">
+        <div class="meta-pill">Compact</div>
+        <div class="meta-pill">High-signal</div>
+        <div class="meta-pill">Fast lookup</div>
+      </div>
+    </header>
+
+    <div class="search-bar" role="search">
+      <label class="visually-hidden" for="search-input">Search BPMN concepts</label>
+      <input
+        id="search-input"
+        type="search"
+        placeholder="Search events, gateways, activities, rules…"
+        autocomplete="off"
+      />
+      <span class="match-count" id="match-count" aria-live="polite">All concepts</span>
+    </div>
+
+    <main class="content" id="content">
+      <section class="category" data-category="Events">
+        <header class="category-header">
+          <h2>Events</h2>
+          <p>Markers that start, interrupt, or end a process.</p>
+        </header>
+        <div class="card-grid">
+          <article class="card" data-search="start event none">
+            <h3>Start Event (None)</h3>
+            <p class="definition">Triggers a process without a specific trigger.</p>
+            <p class="cue">Cue: “Process begins when the work is ready.”</p>
+          </article>
+          <article class="card" data-search="message start event">
+            <h3>Start Event (Message)</h3>
+            <p class="definition">Starts the process when a message arrives.</p>
+            <p class="cue">Cue: “Inbox message kicks off the workflow.”</p>
+          </article>
+          <article class="card" data-search="timer start event">
+            <h3>Start Event (Timer)</h3>
+            <p class="definition">Starts on a schedule or time condition.</p>
+            <p class="cue">Cue: “Every Monday at 9 AM.”</p>
+          </article>
+          <article class="card" data-search="intermediate event message catch throw">
+            <h3>Intermediate Event (Message)</h3>
+            <p class="definition">Waits for or sends a message during the flow.</p>
+            <p class="cue">Cue: “Pause until response is received.”</p>
+          </article>
+          <article class="card" data-search="intermediate event timer">
+            <h3>Intermediate Event (Timer)</h3>
+            <p class="definition">Delays or waits until a time condition.</p>
+            <p class="cue">Cue: “Wait 2 days before follow-up.”</p>
+          </article>
+          <article class="card" data-search="intermediate event error">
+            <h3>Intermediate Event (Error)</h3>
+            <p class="definition">Catches or throws a business error mid-process.</p>
+            <p class="cue">Cue: “Stop this path, handle error flow.”</p>
+          </article>
+          <article class="card" data-search="end event none">
+            <h3>End Event (None)</h3>
+            <p class="definition">Completes the process or subprocess.</p>
+            <p class="cue">Cue: “Work is finished.”</p>
+          </article>
+          <article class="card" data-search="end event error">
+            <h3>End Event (Error)</h3>
+            <p class="definition">Ends and throws an error to the parent scope.</p>
+            <p class="cue">Cue: “Escalate error out of subprocess.”</p>
+          </article>
+          <article class="card" data-search="end event terminate">
+            <h3>End Event (Terminate)</h3>
+            <p class="definition">Stops all activity in the current scope.</p>
+            <p class="cue">Cue: “Cancel everything immediately.”</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="category" data-category="Gateways">
+        <header class="category-header">
+          <h2>Gateways</h2>
+          <p>Control how paths split and merge.</p>
+        </header>
+        <div class="card-grid">
+          <article class="card" data-search="exclusive gateway xor">
+            <h3>Exclusive Gateway (XOR)</h3>
+            <p class="definition">Exactly one outgoing path is taken.</p>
+            <p class="cue">Cue: “Condition-driven: choose one.”</p>
+          </article>
+          <article class="card" data-search="inclusive gateway or">
+            <h3>Inclusive Gateway (OR)</h3>
+            <p class="definition">One or more paths can be taken.</p>
+            <p class="cue">Cue: “Take every condition that matches.”</p>
+          </article>
+          <article class="card" data-search="parallel gateway and">
+            <h3>Parallel Gateway (AND)</h3>
+            <p class="definition">All outgoing paths are taken concurrently.</p>
+            <p class="cue">Cue: “Split into parallel work; join waits for all.”</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="category" data-category="Activities">
+        <header class="category-header">
+          <h2>Activities</h2>
+          <p>Work performed in the process.</p>
+        </header>
+        <div class="card-grid">
+          <article class="card" data-search="task user service manual">
+            <h3>Task</h3>
+            <p class="definition">A single unit of work (user, service, or manual).</p>
+            <p class="cue">Cue: “One step; no internal breakdown.”</p>
+          </article>
+          <article class="card" data-search="subprocess embedded">
+            <h3>Subprocess (Embedded)</h3>
+            <p class="definition">Collapses a sequence of steps inside the process.</p>
+            <p class="cue">Cue: “Reusable chunk within the same pool.”</p>
+          </article>
+          <article class="card" data-search="call activity reusable">
+            <h3>Call Activity</h3>
+            <p class="definition">Invokes a reusable process or global task.</p>
+            <p class="cue">Cue: “Use when the same process is shared.”</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="category" data-category="Flows">
+        <header class="category-header">
+          <h2>Flows & Structure</h2>
+          <p>How work and communication move.</p>
+        </header>
+        <div class="card-grid">
+          <article class="card" data-search="sequence flow">
+            <h3>Sequence Flow</h3>
+            <p class="definition">Shows the order of activities within a pool.</p>
+            <p class="cue">Cue: “Solid arrow; internal process path.”</p>
+          </article>
+          <article class="card" data-search="message flow communication">
+            <h3>Message Flow</h3>
+            <p class="definition">Represents communication between pools.</p>
+            <p class="cue">Cue: “Dashed arrow; only between participants.”</p>
+          </article>
+          <article class="card" data-search="pool participant">
+            <h3>Pool</h3>
+            <p class="definition">Represents a participant or organization.</p>
+            <p class="cue">Cue: “Top-level swimlane boundary.”</p>
+          </article>
+          <article class="card" data-search="lane role">
+            <h3>Lane</h3>
+            <p class="definition">Subdivides a pool by role or team.</p>
+            <p class="cue">Cue: “Who does the work inside a pool.”</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="category" data-category="Rules">
+        <header class="category-header">
+          <h2>Modeling Rules</h2>
+          <p>Core constraints that keep diagrams correct.</p>
+        </header>
+        <div class="card-grid">
+          <article class="card" data-search="message flow pools only">
+            <h3>Message flows only between pools</h3>
+            <p class="definition">Use message flows for cross-participant communication.</p>
+            <p class="cue">Cue: “Never connect lanes with message flow.”</p>
+          </article>
+          <article class="card" data-search="sequence flow within pool">
+            <h3>Sequence flows stay within a pool</h3>
+            <p class="definition">Sequence flows cannot cross pool boundaries.</p>
+            <p class="cue">Cue: “Inside one participant only.”</p>
+          </article>
+          <article class="card" data-search="start end event counts">
+            <h3>One start, one or more ends</h3>
+            <p class="definition">Each process has at least one start and end event.</p>
+            <p class="cue">Cue: “Ensure every path reaches an end.”</p>
+          </article>
+          <article class="card" data-search="gateway join split">
+            <h3>Gateways split and rejoin</h3>
+            <p class="definition">Match split and join types for clarity.</p>
+            <p class="cue">Cue: “XOR split + XOR merge; AND split + AND join.”</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <p>Tip: Use the search to instantly narrow the cards.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
